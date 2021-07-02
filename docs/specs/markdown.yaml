@@ -6,9 +6,9 @@ info:
 paths:
   /markdown:
     get:
-      summary: Markdown in Description. 
+      summary: Markdown in Description.
       description: |
-        Endpoint to create and initiate a pipeline. 
+        Endpoint to create and initiate a pipeline.
 
         ### Paragraph
         In a hole in the ground there lived a hobbit. Not a **nasty**, _dirty_, `wet` hole, filled with the ends
@@ -44,24 +44,24 @@ paths:
 
         ### Code
         ```
-        $ curl -X POST -is -u username:password 
+        $ curl -X POST -is -u username:password
           -H "Content-Type: application/json" https://example.com
           -d '{
           "target": {
-            "ref_type": "branch", 
-            "type": "pipeline_ref_target", 
+            "ref_type": "branch",
+            "type": "pipeline_ref_target",
             "ref_name": "master"
           }'
         }
         ```
         ### Code (with syntax highlight)
         ```bash
-        $ curl -X POST -is -u username:password 
+        $ curl -X POST -is -u username:password
           -H "Content-Type: application/json" https://example.com
           -d '{
           "target": {
-            "ref_type": "branch", 
-            "type": "pipeline_ref_target", 
+            "ref_type": "branch",
+            "type": "pipeline_ref_target",
             "ref_name": "master"
           }'
         }
@@ -72,22 +72,22 @@ paths:
         <div style="color: white; background-color:SlateBlue; padding: 12px; border-radius:2px">
           Markdown do not support colors or fancy HTML designs. However, if you need you can put some html directly inside the markup with some inline styling.
           This box I designed using raw HTML inside the markdown
-        </div>  
+        </div>
         <br>
         <div style="color:#bbb; background-color:#444; padding: 12px 0px 12px 12px;border-left: 5px solid #F06560;">
           <b style="color:#F06560">TIP</b>  Here is another one, done using HTML inside markdown with two different colors to make it appear like a TIP
-        </div>  
+        </div>
         <br>
 
 
-        ### Images 
+        ### Images
         Inline Images no-gap - ![appspot image filler](http://ipsumimage.appspot.com/100)![appspot image filler](http://ipsumimage.appspot.com/100)
 
         Inline Images Single space gap - ![appspot image filler](http://ipsumimage.appspot.com/100)
         ![appspot image filler](http://ipsumimage.appspot.com/100)
 
         Next Line Image
-        
+
         ![appspot image filler](http://ipsumimage.appspot.com/140x100.png)
 
       parameters:
@@ -95,7 +95,7 @@ paths:
           in: query
           description: |
            Field descriptions can contain `Markdown` (Markdown must be monospaced)<br/>
-           **CONSTRAINTS** 
+           **CONSTRAINTS**
            ```
             - At least 3 characters
             - Cannot have space
@@ -120,7 +120,7 @@ paths:
           required: true
           description: |
             Default is `hiking` (hiking must be monospaced)
-            
+
             | Heading 1 | Left-Justified | Centered | Right-Justified |
             | --------- | :------------- | :------: | --------------: |
             | text | text | text | text |
@@ -137,7 +137,7 @@ paths:
                 - computers
                 - hiking
                 - swiming
-              default: hiking 
+              default: hiking
 
       responses:
         '200':
@@ -153,7 +153,14 @@ paths:
                     type: object
                     properties:
                       firstName:
-                        description: _First name_ (First name should be italics)
+                        description: |-
+                          _First name_ (First name should be italics)
+
+                          | Heading 1 | Left-Justified | Centered | Right-Justified |
+                          | --------- | :------------- | :------: | --------------: |
+                          | text | text | text | text |
+                          | text | text | text | text |
+                          | text | text | text | text |
                         type: string
                       lastName:
                         description: |
@@ -162,7 +169,7 @@ paths:
                   hobbies:
                     type: array
                     description:  list of words separated by `comma` (comma should be monospaced).
-                    items: 
+                    items:
                       type: string
                   dependentNames:
                     type: array
@@ -181,7 +188,7 @@ paths:
                             lastName:
                               description: Dependent Last Name
                               type: string
-          headers:                  
+          headers:
             Link:
               required: true
               schema:
